@@ -12,3 +12,21 @@ TEST_CASE("Verify sum_numbers function")
 	REQUIRE(add_numbers(10, 10) == 20);
 }
 
+//add include for expressions.h
+#include "../src/homework/02_expressions/expressions.h"
+
+//create an assertion to verify that calling the
+//get_sales_tax_amount function with parameter 10
+//returns the value '.675'
+TEST_CASE("Test Get Sales Tax")
+{
+	REQUIRE(get_sales_tax_amount(10) == 0.675);
+	REQUIRE(get_sales_tax_amount(20) == 1.35);
+}
+
+//test case 2 name Test Get Tip Amount
+TEST_CASE("Test Get Tip Amount")
+{
+	REQUIRE(get_tip_amount(20, 0.15) == 3);
+	REQUIRE(get_tip_amount(20, 0.2) == 4);
+}
