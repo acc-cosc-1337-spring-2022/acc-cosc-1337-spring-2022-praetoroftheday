@@ -6,9 +6,21 @@ int add_numbers(int num1, int num2)
 	return num1 + num2;
 }
 
-//write code for multiply_numbers function here
-//function returns product of num1 and num2
+//write code for get_sales_tax_amount multiply tax_rate
+//and meal_amount and return their product
+double get_sales_tax_amount(double meal_amount)
+{
+	//set tax rate
+	const double tax_rate = .0675;
+	//return tax rate * meal_amount
+	return tax_rate * meal_amount;
+}
 
+//write function code to multiply meal_amount and tip_rate and return their product
+double get_tip_amount(double meal_amount, double tip_rate)
+{
+	return meal_amount * tip_rate;
+}
 
 
 
