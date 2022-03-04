@@ -22,10 +22,10 @@ int main()
 	while (exitchoice != 1) 
 	{
 		//create a variable to control the loop
-		int choice;
+		int choice = 0;
 
 		//display the options
-		cout << "Menu \n";
+		cout << "\n Menu \n";
 		cout << "1 - Factorial \n";
 		cout << "2 - Greatest Common Divisor \n";
 		cout << "3 - Exit \n";
@@ -36,7 +36,7 @@ int main()
 		if (choice == 1) 
 		{
 			int num = 0; 
-			cout << "Enter a number you wish to get the factorial of \n";
+			cout << "Enter a number you wish to get the factorial of: ";
 			cin >> num;
 			//display the results
 			cout << "The factorial of " << num << " is: " << factorial(num) << "\n";
@@ -52,9 +52,8 @@ int main()
 			cin >> num1;
 			cout << "Second Number: ";
 			cin >> num2;
-			cout << "\n";
 			//display the results
-			cout << "\n The greatest common divisor of " << num1 << "and " << num2 << "is: " << gcd(num1, num2);
+			cout << "\n The greatest common divisor of " << num1 << " and " << num2 << " is: " << gcd(num1, num2) << "\n";
 			exitchoice = 0;
 		}
 		else if (choice == 3)
@@ -63,4 +62,5 @@ int main()
 			cin >> exitchoice;
 		}
 	}
+	return 0;
 }

@@ -1,4 +1,5 @@
 #include "dna.h"
+
 /*
 Write code for function get_gc_content that accepts
 a const reference string parameter and returns a double.
@@ -48,10 +49,9 @@ int gcd (int num1, int num2)
             num2 = temp;
         }
         else if (num1 > num2) {
-            num1 = num2 - num1;
+            num1 = num1 - num2;
         }
      }
     while (num1 != num2);
     return num1;
-
 }
