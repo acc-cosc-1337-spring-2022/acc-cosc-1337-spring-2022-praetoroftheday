@@ -17,3 +17,10 @@ Write prototype for function get_dna_complement that
 accepts a string and returns a string
 */
 
+//prototype function for an int value-return function
+// that accepts an int parameter named 'num'
+int factorial (int num);
+
+//prototype function for an int value-return fucntion
+// involving gcd that accepts 2 int parameters
+int gcd (int num1, int num2);
