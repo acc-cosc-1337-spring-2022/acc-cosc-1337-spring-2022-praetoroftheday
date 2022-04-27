@@ -15,6 +15,12 @@ int main()
 	{
 		cout<<"Enter first player (X or O): ";
 		cin>>first_player;
+		while (!(first_player == "X" || first_player == "O"))
+		{
+			cout<<"\nPlease enter either 'X' or 'O' \n";
+			cin>>first_player;
+		} 
+
 		game.start_game(first_player);
 
 		//declare position variable
@@ -27,7 +33,7 @@ int main()
 			game.display_board();
 		}
 
-		cout<< "\nTo continue, type Y: ";
+		cout<< "\nWould you like to play another game?\nTo do so, type 'Y': ";
 		cin>>choice;
 	}
 	while (choice =='Y' || choice == 'y');
