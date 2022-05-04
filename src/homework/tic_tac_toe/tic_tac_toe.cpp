@@ -13,25 +13,22 @@ bool TicTacToe::game_over()
 {
     //update class function to determine a win by checking for different kinds of wins
     //if winner, call set winner function and return true
-
     //check column win
     if (check_column_win() == true) 
     {
-        cout<<"Yay! Column win!";
         set_winner();
         return true; 
     }
     //row win
     else if (check_row_win() == true)
     {
-        cout<<"Yay! Row win!";
         set_winner();
         return true;
     }
+
     //diagonal win
     else if (check_diagonal_win() == true)
     {
-        cout<<"Yay! Diagonal win!";
         set_winner();
         return true;
     }
@@ -56,7 +53,9 @@ bool TicTacToe::game_over()
 void TicTacToe::start_game(string first_player)
 {
     player = first_player;
+    cout<<"\nFirst player: Set\n";
     clear_board();
+    cout<<"\nClear board function successfully called\n";
 }
 
 //define mark_board 
@@ -73,7 +72,9 @@ string TicTacToe::get_player() const
     return next_player;
 }
 
-//define display_board
+/* 
+REMOVED
+define display_board
 void TicTacToe::display_board()const
 {
     for (int i=0; i < 9; i+=3)
@@ -81,13 +82,33 @@ void TicTacToe::display_board()const
         cout<<pegs[i]<<"|"<<pegs[i+1]<<"|"<<pegs[i+2]<<"\n";
     }
 }
-
+*/
 
 
 //define get_winner function
 string TicTacToe::get_winner()
 {
     return winner;
+}
+
+//overload istream operator (returns istream& not void)
+std::istream& operator>>(std::istream& in, TicTacToe& game)
+{
+    int position;
+    cout<<"Enter Position [1-9]: ";
+    in>>position;
+    game.mark_board(position);
+    return in;
+
+}
+//overload ostream operator (returns ostream& not void)
+std::ostream& operator<<(std::ostream& out, const TicTacToe& game)
+{
+    for (int i=0; i < 9; i+=3)
+    {
+        out<<game.pegs[i]<<"|"<< game.pegs[i+1]<<"|"<< game.pegs[i+2]<<"\n";
+    }
+    return out;
 }
 
 //BEGINNING OF PRIVATE FUNCTIONS
@@ -206,13 +227,11 @@ void TicTacToe::set_winner()
     //if player is 'X', set winner to O
     if (player == "X")
     {
-        cout<< "\nCongratulations O! You've won!";
         winner = "O";
     }
     //otherwise set winner to "X"
     else
     {
-        cout<< "\nCongratulations X! You've won!";
         winner = "X";
     }
 }
@@ -233,7 +252,7 @@ void TicTacToe::set_next_player()
 //define check_board_full
 bool TicTacToe::check_board_full()
 {
-    for (auto peg: pegs)
+    for (std::string peg: pegs)
     {
         if(peg == " ")
         {
@@ -246,10 +265,16 @@ bool TicTacToe::check_board_full()
 //define clear_board
 void TicTacToe::clear_board()
 {
-    for(auto& peg: pegs)
+    cout<<"\nClearing Board...\n";
+    /*for(std::string& peg: pegs)
     {
-        cout<<"Blep";
         peg = " ";
+    }*/
+    pegs.clear();
+    for (int i = 0; i <9; i++)
+    {
+        pegs.push_back(" ");
     }
+    cout<<"\nBoard: Cleared\n";
 }
 
