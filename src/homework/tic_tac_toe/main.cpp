@@ -1,6 +1,8 @@
 //include header file 
 #include "tic_tac_toe.h"
 #include "tic_tac_toe_manager.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_4.h"
 
 //make your own life easier
 using std::cout; using std::cin; using std::string;
@@ -13,7 +15,21 @@ int main()
 	char choice;
 	do
 	{
-		TicTacToe game;
+		int size;
+		//modify tictactoe game to a unique_ptr to tictactoe
+		std::unique_ptr<TicTacToe>;
+		//prompt the user to play tictactoe 3 or 4
+		cout<<"Would you like to play TicTacToe 3 or 4?";
+		cin>>size;
+		//create an instance (make_unique) of TicTacToe 3 or 4
+		if (size == 4)
+		{
+			std::make_unique<TicTacToe4> game;
+		}
+		else:
+		{
+			std::make_unique<TicTacToe3> game;
+		}
 		string first_player;
 
 		cout<<"Enter first player (X or O): ";
@@ -43,7 +59,7 @@ int main()
 		}
 		cout<<"\nCongratulations "<<game.get_winner()<<" you've won!";
 
-		manager.save_game(game);
+		manager.save_game(*game);
 		cout<< "\nGame Saved!\n";
 
 		int o, x, t;
