@@ -13,6 +13,8 @@
 class TicTacToe
 {
 public:
+    TicTacToe(int size);
+    
     bool game_over();
     void start_game(std::string first_player);
     void mark_board(int position);
@@ -25,16 +27,17 @@ public:
     //overload istream operator (returns istream& not void)
     friend std::istream& operator>>(std::istream& in, TicTacToe& game);
 private:
-    bool check_column_win();
-    bool check_row_win();
-    bool check_diagonal_win();
     void set_winner();
     std::string player;
-    std::vector<std::string> pegs;
     std::string winner;
     void set_next_player();
     bool check_board_full();
     void clear_board();
+protected:
+    std::vector<std::string> pegs;
+    bool check_column_win();
+    bool check_row_win();
+    bool check_diagonal_win();
 };
 
 #endif
